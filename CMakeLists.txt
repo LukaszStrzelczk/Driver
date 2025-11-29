@@ -1,10 +1,18 @@
 cmake_minimum_required(VERSION 3.16)
 
+set(CMAKE_TOOLCHAIN_FILE "E:/vcpkg/scripts/buildsystems/vcpkg.cmake")
+
 project(Driver VERSION 0.1 LANGUAGES CXX)
 
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Quick Multimedia)
+find_package(SDL2 CONFIG REQUIRED)
 
 qt_standard_project_setup(REQUIRES 6.5)
 
@@ -22,6 +30,8 @@ qt_add_qml_module(appDriver
     VERSION 1.0
     QML_FILES
         Main.qml
+    RESOURCES
+        resources/bg.jpg
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -39,8 +49,11 @@ target_link_libraries(appDriver
     PRIVATE 
         Qt6::Quick
         Qt6::Multimedia
+        SDL2::SDL2
         videoplugin
-
+        wheelplugin
+        modulesplugin
+        utilsplugin
 )
 
 include(GNUInstallDirs)

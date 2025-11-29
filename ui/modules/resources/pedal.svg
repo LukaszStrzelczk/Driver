@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="pedał.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="16.9375"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g11"
+       inkscape:label="pedał">
+      <rect
+         style="fill:#5e5e5e;fill-opacity:1;stroke:#5e5e5e;stroke-width:3.615;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect1"
+         width="32.384998"
+         height="44.384998"
+         x="7.8074999"
+         y="1.8075"
+         ry="0.042317957"
+         inkscape:label="podstawa" />
+      <g
+         id="g9"
+         inkscape:label="kropki">
+        <circle
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.51978;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers stroke fill"
+           id="path1"
+           cx="16"
+           cy="10"
+           r="4" />
+        <circle
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.51978;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers stroke fill"
+           id="circle5"
+           cx="16"
+           cy="24"
+           r="4" />
+        <circle
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.51978;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers stroke fill"
+           id="circle6"
+           cx="16"
+           cy="38"
+           r="4" />
+        <circle
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.51978;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers stroke fill"
+           id="circle7"
+           cx="32"
+           cy="10"
+           r="4" />
+        <circle
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.51978;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers stroke fill"
+           id="circle8"
+           cx="32"
+           cy="24"
+           r="4" />
+        <circle
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.51978;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers stroke fill"
+           id="circle9"
+           cx="32"
+           cy="38"
+           r="4" />
+      </g>
+    </g>
+  </g>
+</svg>
