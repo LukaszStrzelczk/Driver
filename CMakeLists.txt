@@ -46,7 +46,7 @@ set_target_properties(appDriver PROPERTIES
 )
 
 target_link_libraries(appDriver
-    PRIVATE 
+    PRIVATE
         Qt6::Quick
         Qt6::Multimedia
         SDL2::SDL2
@@ -54,6 +54,7 @@ target_link_libraries(appDriver
         wheelplugin
         modulesplugin
         utilsplugin
+        driversrcplugin
 )
 
 include(GNUInstallDirs)

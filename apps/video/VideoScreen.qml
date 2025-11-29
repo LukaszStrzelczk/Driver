@@ -21,7 +21,7 @@ Item{
         autoPlay: true
         muted: true
         fillMode: VideoOutput.PreserveAspectFit
-        playbackRate: 0
+        // playbackRate: 0
         onErrorOccurred: (error, errorString) => {
             console.log("Error:", errorString)
             noVideoText.visible = true
