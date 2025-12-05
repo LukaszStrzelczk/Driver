@@ -1,4 +1,4 @@
-#include "headers/steeringcontroller.hpp"
+#include "includes/steeringcontroller.hpp"
 #include <QDebug>
 #include <QtMath>
 
@@ -8,11 +8,9 @@ SteeringController::SteeringController(QObject *parent)
     , m_pollTimer(new QTimer(this))
     , m_steering(0.0)
     , m_throttle(0.0)
-    , m_brake(0.0)
     , m_connected(false)
     , m_steeringAxis(0)
     , m_throttleAxis(2)
-    , m_brakeAxis(1) 
 {
     initSDL();
 
@@ -122,13 +120,11 @@ void SteeringController::closeJoystick()
     m_deviceName.clear();
     m_steering = 0.0;
     m_throttle = 0.0;
-    m_brake = 0.0;
 
     emit connectedChanged();
     emit deviceNameChanged();
     emit steeringChanged();
     emit throttleChanged();
-    emit brakeChanged();
 }
 
 void SteeringController::pollJoystick()
@@ -160,16 +156,6 @@ void SteeringController::pollJoystick()
         }
     }
 
-    // Brake (axis 1, normalized 0.0 to 1.0, inverted)
-    if (m_brakeAxis < numAxes) {
-        int rawBrake = SDL_JoystickGetAxis(m_joystick, m_brakeAxis);
-        // Convert from -1.0..1.0 to 0.0..1.0 (inverted: -1.0 = full brake)
-        qreal newBrake = (1.0 - normalizeAxis(rawBrake)) / 2.0;
-        if (qAbs(newBrake - m_brake) > 0.001) {
-            m_brake = newBrake;
-            emit brakeChanged();
-        }
-    }
 }
 
 qreal SteeringController::normalizeAxis(int value, int min, int max)
@@ -180,12 +166,6 @@ qreal SteeringController::normalizeAxis(int value, int min, int max)
 
     qreal range = static_cast<qreal>(max - min);
     qreal normalized = (static_cast<qreal>(value - min) / range) * 2.0 - 1.0;
-
-    // Apply deadzone (2%)
-    // const qreal deadzone = 0.02;
-    // if (qAbs(normalized) < deadzone) {
-    //     normalized = 0.0;
-    // }
 
     return normalized;
 }

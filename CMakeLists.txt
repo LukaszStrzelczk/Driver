@@ -11,7 +11,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Quick Multimedia)
+find_package(Qt6 REQUIRED COMPONENTS Quick Multimedia WebSockets)
 find_package(SDL2 CONFIG REQUIRED)
 
 qt_standard_project_setup(REQUIRES 6.5)
@@ -20,6 +20,7 @@ add_subdirectory(src)
 add_subdirectory(apps)
 add_subdirectory(ui)
 add_subdirectory(utils)
+add_subdirectory(net)
 
 qt_add_executable(appDriver
     src/main.cpp
@@ -47,6 +48,7 @@ set_target_properties(appDriver PROPERTIES
 
 target_link_libraries(appDriver
     PRIVATE
+        Qt6::Core
         Qt6::Quick
         Qt6::Multimedia
         SDL2::SDL2
@@ -55,6 +57,8 @@ target_link_libraries(appDriver
         modulesplugin
         utilsplugin
         driversrcplugin
+        net
+        netplugin
 )
 
 include(GNUInstallDirs)

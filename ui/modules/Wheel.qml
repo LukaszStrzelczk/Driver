@@ -1,15 +1,24 @@
 import QtQuick
+import utils
 
 Item{
     id: root
     property real steeringValue: 0.0  // -1.0 to 1.0 from SteeringController
-    height: wheel.height
+    height: wheel.height + bar.height + bar.anchors.bottomMargin
     width: wheel.width
+
+    CenteredProgressBar{
+        id: bar
+        value: root.steeringValue
+        anchors.top: root.top
+        anchors.bottomMargin: 10
+    }
 
     Image{
         id: wheel
         fillMode: Image.PreserveAspectFit
-        anchors.centerIn: parent
+        anchors.top: bar.bottom 
+        anchors.horizontalCenter: parent.horizontalCenter
         source: "resources/steeringWheel.svg"
         transform: Rotation {
             origin.x: wheel.width / 2
@@ -20,15 +29,5 @@ Item{
         smooth: true
         height: 100
         width: 100
-    }
-
-    // Debug text showing percentage
-    Text {
-        anchors.top: wheel.bottom
-        anchors.topMargin: 5
-        anchors.horizontalCenter: parent.horizontalCenter
-        text: "Steering: " + (root.steeringValue * 100).toFixed(0) + "%"
-        color: "white"
-        font.pixelSize: 12
     }
 }

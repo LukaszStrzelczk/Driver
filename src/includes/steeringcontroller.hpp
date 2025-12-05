@@ -13,7 +13,6 @@ class SteeringController : public QObject
     QML_ELEMENT
     Q_PROPERTY(qreal steering READ steering NOTIFY steeringChanged)
     Q_PROPERTY(qreal throttle READ throttle NOTIFY throttleChanged)
-    Q_PROPERTY(qreal brake READ brake NOTIFY brakeChanged)
     Q_PROPERTY(bool connected READ connected NOTIFY connectedChanged)
     Q_PROPERTY(QString deviceName READ deviceName NOTIFY deviceNameChanged)
     Q_PROPERTY(QStringList availableDevices READ availableDevices NOTIFY availableDevicesChanged)
@@ -25,7 +24,6 @@ public:
     // Property getters
     qreal steering() const { return m_steering; }
     qreal throttle() const { return m_throttle; }
-    qreal brake() const { return m_brake; }
     bool connected() const { return m_connected; }
     QString deviceName() const { return m_deviceName; }
     QStringList availableDevices() const { return m_availableDevices; }
@@ -38,7 +36,6 @@ public:
 signals:
     void steeringChanged();
     void throttleChanged();
-    void brakeChanged();
     void connectedChanged();
     void deviceNameChanged();
     void availableDevicesChanged();
@@ -54,7 +51,6 @@ private:
     // Input values (normalized)
     qreal m_steering;
     qreal m_throttle;
-    qreal m_brake;
 
     // Connection state
     bool m_connected;
@@ -65,7 +61,6 @@ private:
     // Axis mapping
     int m_steeringAxis;
     int m_throttleAxis;
-    int m_brakeAxis;
 
     // Private methods
     void initSDL();

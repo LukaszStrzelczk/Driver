@@ -1,1 +1,1 @@
-# Driver
+ffmpeg -f dshow -i video="UVC Camera" -vcodec libx264 -preset ultrafast -tune zerolatency -b:v 2M -maxrate 2M -bufsize 512k -pix_fmt yuv420p -g 30 -f rtp rtp://127.0.0.1:5004

@@ -1,0 +1,12 @@
+# Low latency settings
+readTimeout: 5s
+writeTimeout: 5s
+readBufferCount: 1
+
+protocols: [udp]
+rtspAddress: :8554
+
+paths:
+  cam:
+    source: publisher
+    sourceOnDemand: no

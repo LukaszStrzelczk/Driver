@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import modules
-import driversrc
 
 Item{
     id: root
@@ -10,17 +9,8 @@ Item{
     width: 900
     height: 280
 
-    // Create a SteeringController instance
-    SteeringController {
-        id: steeringController
-
-        Component.onCompleted: {
-            // Auto-connect to first available device
-            if (availableDevices.length > 0) {
-                connectDevice(0)
-            }
-        }
-    }
+    // SteeringController is now available as a global context property from main.cpp
+    // No need to create a local instance - 'steeringController' is automatically available
 
     Column {
         anchors.centerIn: parent
@@ -41,13 +31,6 @@ Item{
                 Layout.alignment: Qt.AlignVCenter
                 label: "Throttle"
                 value: steeringController.throttle
-            }
-
-            Pedal{
-                id: brakePedal
-                Layout.alignment: Qt.AlignVCenter
-                label: "Brake"
-                value: steeringController.brake
             }
 
             // Connection status indicator

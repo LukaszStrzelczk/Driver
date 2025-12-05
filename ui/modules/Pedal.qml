@@ -29,14 +29,4 @@ Item {
         implicitHeight: 100
         implicitWidth: 30
     }
-
-    // Label
-    Text {
-        anchors.top: pedal.bottom
-        anchors.topMargin: 5
-        anchors.horizontalCenter: pedal.horizontalCenter
-        text: root.label + ": " + (root.value * 100).toFixed(0) + "%"
-        color: "white"
-        font.pixelSize: 12
-    }
 }
