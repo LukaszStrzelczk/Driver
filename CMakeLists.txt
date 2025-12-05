@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(CMAKE_TOOLCHAIN_FILE "E:/vcpkg/scripts/buildsystems/vcpkg.cmake")
+# Toolchain file is now set via CMakeUserPresets.json for machine-specific paths
 
 project(Driver VERSION 0.1 LANGUAGES CXX)
 
