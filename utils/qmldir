@@ -1,3 +1,4 @@
 module utils
 ProgressBar 1.0 ProgressBar.qml
 CenteredPorgressBar 1.0 CenteredProgressBar.qml
+IpPopUp 1.0 IpPopUp.qml

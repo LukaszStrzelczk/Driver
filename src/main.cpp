@@ -2,12 +2,17 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QIcon>
+#include <QQuickStyle>
 #include "includes/steeringcontroller.hpp"
+#include "includes/mjpegdecoder.hpp"
 #include "net/includes/steeringcontrollerservice.hpp"
 
 int qMain(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+
+    // Set Qt Quick Controls style to Basic for full customization support
+    QQuickStyle::setStyle("Basic");
 
     // Create SteeringController instance
     SteeringController steeringController(&app);
@@ -20,14 +25,18 @@ int qMain(int argc, char *argv[])
     // Create WebSocket service
     SteeringControllerService steeringControllerService(&steeringController, &app);
 
-    // Connect to WebSocket server (uncomment and update URL to connect)
-    // steeringControllerService.connectToServer("ws://localhost:8080");
+    // Create MJPEG decoder
+    MjpegDecoder mjpegDecoder(&app);
 
     QQmlApplicationEngine engine;
+
+    // Register MJPEG image provider
+    engine.addImageProvider("mjpeg", mjpegDecoder.imageProvider());
 
     // Register instances as QML context properties
     engine.rootContext()->setContextProperty("steeringController", &steeringController);
     engine.rootContext()->setContextProperty("steeringControllerService", &steeringControllerService);
+    engine.rootContext()->setContextProperty("mjpegDecoder", &mjpegDecoder);
 
     QObject::connect(
         &engine,

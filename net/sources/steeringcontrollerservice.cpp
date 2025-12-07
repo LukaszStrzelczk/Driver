@@ -93,7 +93,7 @@ void SteeringControllerService::sendSteeringData()
     QJsonObject packet = createDataPayload();
     QJsonDocument doc(packet);
     QString jsonString = doc.toJson(QJsonDocument::Compact);
-
+    qDebug() << "Sending data";
     m_webSocket->sendTextMessage(jsonString);
 }
 

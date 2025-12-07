@@ -6,6 +6,8 @@ qt_add_qml_module(driversrc
     SOURCES
         sources/steeringcontroller.cpp
         includes/steeringcontroller.hpp
+        sources/mjpegdecoder.cpp
+        includes/mjpegdecoder.hpp
 )
 
 # Make headers directory available for includes
@@ -18,5 +20,6 @@ target_link_libraries(driversrc
     PRIVATE
         Qt6::Quick
         Qt6::Multimedia
+        Qt6::Network
         SDL2::SDL2
 )

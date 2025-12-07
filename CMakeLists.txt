@@ -11,7 +11,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Quick Multimedia WebSockets)
+find_package(Qt6 REQUIRED COMPONENTS Quick QuickControls2 Multimedia Network WebSockets)
 find_package(SDL2 CONFIG REQUIRED)
 
 qt_standard_project_setup(REQUIRES 6.5)
@@ -50,6 +50,7 @@ target_link_libraries(appDriver
     PRIVATE
         Qt6::Core
         Qt6::Quick
+        Qt6::QuickControls2
         Qt6::Multimedia
         SDL2::SDL2
         videoplugin

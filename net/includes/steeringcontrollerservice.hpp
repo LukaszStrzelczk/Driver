@@ -16,9 +16,9 @@ public:
     ~SteeringControllerService();
 
     // connection
-    void connectToServer(const QString &url);
-    void disconnect();
-    bool isConnected() const;
+    Q_INVOKABLE void connectToServer(const QString &url);
+    Q_INVOKABLE void disconnect();
+    Q_INVOKABLE bool isConnected() const;
 
 signals: 
     void connected();
@@ -36,6 +36,7 @@ private:
     QWebSocket *m_webSocket;
     SteeringController *m_controller;
     bool m_isConnected;
+    QString m_url;
 
     //private methods
     void sendSteeringData();

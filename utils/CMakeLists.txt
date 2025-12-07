@@ -5,4 +5,5 @@ qt_add_qml_module(utils
     QML_FILES
         ProgressBar.qml
         CenteredProgressBar.qml
+        IpPopUp.qml
 )
