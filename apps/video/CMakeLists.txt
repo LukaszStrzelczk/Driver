@@ -5,3 +5,10 @@ qt_add_qml_module(video
     QML_FILES
         VideoScreen.qml
 )
+
+target_link_libraries(video
+    PRIVATE
+        Qt6::Core
+        Qt6::Quick
+        Qt6::Multimedia
+)

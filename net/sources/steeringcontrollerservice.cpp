@@ -93,7 +93,6 @@ void SteeringControllerService::sendSteeringData()
     QJsonObject packet = createDataPayload();
     QJsonDocument doc(packet);
     QString jsonString = doc.toJson(QJsonDocument::Compact);
-    qDebug() << "Sending data";
     m_webSocket->sendTextMessage(jsonString);
 }
 
@@ -102,10 +101,8 @@ QJsonObject SteeringControllerService::createDataPayload() const
     QJsonObject packet;
 
     if (m_controller) {
-        packet["angle"] = m_controller->steering();
+        packet["steering"] = m_controller->steering();
         packet["throttle"] = m_controller->throttle();
-        packet["drive_mode"] = QString("user");
-        packet["recording"] = false;
     }
 
     return packet;

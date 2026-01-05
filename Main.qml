@@ -37,11 +37,8 @@ Window {
         onIpsConfirmed: function(ip) {
             console.log("IP:", ip)
 
-            // Configure MJPEG decoder with video stream URL an websocket
             if (ip.length>0) {
-                steeringControllerService.connectToServer("ws://" + ip + ":8887/wsDrive")
-                mjpegDecoder.url = "http://" + ip + ":8887/video"
-                mjpegDecoder.start()
+                steeringControllerService.connectToServer("ws://" + ip + ":8765")
             }
         }
 

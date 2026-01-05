@@ -14,6 +14,17 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(Qt6 REQUIRED COMPONENTS Quick QuickControls2 Multimedia Network WebSockets)
 find_package(SDL2 CONFIG REQUIRED)
 
+set(GSTREAMER_ROOT "A:/gstreamer/1.0/msvc_x86_64")
+set(GSTREAMER_INCLUDE_DIRS 
+    "${GSTREAMER_ROOT}/include/gstreamer-1.0"
+    "${GSTREAMER_ROOT}/include/glib-2.0"
+    "${GSTREAMER_ROOT}/lib/glib-2.0/include"
+)
+set(GSTREAMER_LIBRARY_DIRS "${GSTREAMER_ROOT}/lib")
+
+# Link GStreamer libraries
+link_directories(${GSTREAMER_LIBRARY_DIRS})
+
 qt_standard_project_setup(REQUIRES 6.5)
 
 add_subdirectory(src)
@@ -46,6 +57,8 @@ set_target_properties(appDriver PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
+target_include_directories(appDriver PRIVATE ${GSTREAMER_INCLUDE_DIRS})
+
 target_link_libraries(appDriver
     PRIVATE
         Qt6::Core
@@ -60,6 +73,12 @@ target_link_libraries(appDriver
         driversrcplugin
         net
         netplugin
+        gstreamer-1.0
+        gstbase-1.0
+        gstapp-1.0
+        gstvideo-1.0
+        gobject-2.0
+        glib-2.0
 )
 
 include(GNUInstallDirs)
