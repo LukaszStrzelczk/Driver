@@ -14,8 +14,12 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(Qt6 REQUIRED COMPONENTS Quick QuickControls2 Multimedia Network WebSockets)
 find_package(SDL2 CONFIG REQUIRED)
 
-set(GSTREAMER_ROOT "A:/gstreamer/1.0/msvc_x86_64")
-set(GSTREAMER_INCLUDE_DIRS 
+# GStreamer paths - set via CMakeUserPresets.json
+if(NOT DEFINED GSTREAMER_ROOT)
+    message(FATAL_ERROR "GSTREAMER_ROOT must be set in CMakeUserPresets.json")
+endif()
+
+set(GSTREAMER_INCLUDE_DIRS
     "${GSTREAMER_ROOT}/include/gstreamer-1.0"
     "${GSTREAMER_ROOT}/include/glib-2.0"
     "${GSTREAMER_ROOT}/lib/glib-2.0/include"
